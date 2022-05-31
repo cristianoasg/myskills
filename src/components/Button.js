@@ -5,58 +5,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export function Button(){
+export function Button( { onPress } ){
   return (
     <TouchableOpacity
       style={styles.button}
       activeOpacity={.7}
-      //onPress={handleAddNewSkill}
+      onPress={onPress}
     >
       <Text style={styles.buttonText}>Add</Text>
   </TouchableOpacity>
-  )
-}
-
-
-
-export  function Home() {
-  const [newSkill, setNewSkill] = useState('');
-  const [mySkills, setMySkills] = useState([]);
-
-  function handleAddNewSkill(){
-    setMySkills(oldState => [...oldState, newSkill]);
-  }
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        Welcome, Cristiano
-      </Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="New skill"
-        placeholderTextColor="#555"
-        onChangeText={setNewSkill}
-      />
-
-<Button/>
-
-<Text style={[styles.title, { marginVertical: 50 }]}>
-  My Skills
-</Text>
-
-{
-  mySkills.map(skill => (
-  <TouchableOpacity key={skill} style={styles.buttonSkill}>
-    <Text style={styles.textSkill}>
-      {skill}
-    </Text>
-  </TouchableOpacity>
-  ))
-}
-
-    </View >
   )
 }
 
