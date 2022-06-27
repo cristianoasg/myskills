@@ -36,6 +36,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.title}>
         Welcome, Cristiano
       </Text>
