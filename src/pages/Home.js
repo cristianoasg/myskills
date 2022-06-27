@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,18 +6,19 @@ import {
   TextInput,
   Platform,
   FlatList,
- } from 'react-native';
+} from 'react-native';
 
- import { Button } from '../components/Button';
- import { SkillCard } from '../components/SkillCard';
+import { Button } from '../components/Button';
+import { SkillCard } from '../components/SkillCard';
 
-export  function Home() {
+export function Home() {
   const [newSkill, setNewSkill] = useState('');
   const [mySkills, setMySkills] = useState([]);
 
-  function handleAddNewSkill(){
+  function handleAddNewSkill() {
     setMySkills(oldState => [...oldState, newSkill]);
   }
+
 
   return (
     <View style={styles.container}>
@@ -32,20 +33,20 @@ export  function Home() {
         onChangeText={setNewSkill}
       />
 
-<Button onPress={handleAddNewSkill} />
+      <Button onPress={handleAddNewSkill} />
 
-<Text style={[styles.title, { marginVertical: 50 }]}>
-  My Skills
-</Text>
+      <Text style={[styles.title, { marginVertical: 50 }]}>
+        MySkills
+      </Text>
 
-<FlatList
-    data={mySkills}
-    keyExtractor={item => item}
-    renderItem={({ item }) => (
-      <SkillCard skill={item}/>
-    )}
-/>
-  </View >
+      <FlatList
+        data={mySkills}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <SkillCard skill={item} />
+        )}
+      />
+    </View >
   )
 }
 
